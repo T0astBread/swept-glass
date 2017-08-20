@@ -1,0 +1,142 @@
+nav.top-level-nav
+{
+    position: fixed;
+    top: 0;
+    left: -25em;
+    width: 25em;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 2rem;
+    z-index: 5;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    /* transition: left 1.5s cubic-bezier(1, 0, 0.17, 1); */
+    transition: left 1.5s cubic-bezier(1, 0.05, 0.44, 1), width 1s cubic-bezier(1, 0.05, 0.44, 1);
+}
+
+nav.top-level-nav.active
+{
+    left: 0;
+}
+
+nav.top-level-nav .glass-bg
+{
+    background-position: 8rem center;
+    background-size: contain;
+    z-index: -1;
+    transition: background-position-x 1.5s cubic-bezier(1, 0.05, 0.44, 1);
+}
+
+nav.top-level-nav.active .glass-bg
+{
+    background-position-x: -2rem;
+}
+
+nav.top-level-nav .nav-content
+{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+nav.top-level-nav .nav-top-lane .toggle
+{
+    font-size: 1.5em;
+}
+
+.page-body
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper
+{
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.page-body .toggle-nav
+{
+    position: fixed;
+    vertical-align: top;
+    font-size: 2em;
+    opacity: 1;
+    transition: opacity .5s 1s ease;
+}
+
+nav.top-level-nav.active ~ .page-body .toggle-nav
+{
+    /* opacity: .4; */
+    transition-delay: .7s;
+}
+
+main
+{
+    display: inline-block;
+}
+
+main, .footer-content
+{
+    margin-left: 5rem;
+    /* transition: margin-left 1.5s cubic-bezier(0.68, -0.39, 0.44, 1);  */
+    /* transition: margin-left 1.5s cubic-bezier(0.78, 0.03, 0.44, 1);  */
+    /* transition: margin-left 1.5s ease-out; */
+    transition: margin-left 1.5s cubic-bezier(1, 0.05, 0.44, 1);
+}
+
+main :first-child
+{
+    margin-top: 0;
+}
+
+nav.top-level-nav.active ~ .page-body main, nav.top-level-nav.active ~ .page-body .footer-content
+{
+    margin-left: 27rem;
+    /* transition-delay: .75s; */
+}
+
+footer
+{
+    background-color: #464646;
+    width: 100%;
+    padding-left: 2rem;
+    box-sizing: border-box;
+}
+
+
+/*********************/
+/* RESPONSIVE DESIGN */
+/*********************/
+
+@media screen and (max-width: 1000px)
+{
+    nav.top-level-nav
+    {
+        width: 90vw;
+        left: -90vw;
+
+        height: 110vh;
+        transition: left 1.5s cubic-bezier(1, 0.05, 0.44, 1);
+    }
+
+    nav.top-level-nav.active ~ .page-body main, nav.top-level-nav.active ~ .page-body .footer-content
+    {
+        margin-left: 5rem;
+    }
+}
+
+@media(-webkit-nintendo-switch-device-mode: -webkit-nintendo-switch-device-handheld)
+{
+    nav.top-level-nav
+    {
+        transition: left 1.5s cubic-bezier(1, 0.05, 0.44, 1);
+    }
+}

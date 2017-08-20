@@ -1,0 +1,218 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+html, body
+{
+    height: 100%;
+    position: relative;
+}
+
+body
+{
+    /* color: #777; */
+    background-color: #262626;
+    font-family: 'PT Sans', Calibri, sans-serif;
+    font-size: 1em;
+}
+
+h1
+{
+    font-family: Raleway, 'Courier New', Courier, serif;
+    color: white;
+    font-size: 5em;
+    margin: 3.5rem 0;
+}
+
+p
+{
+    font-size: 1.7em;
+    max-width: 900px;
+    margin: 2.5rem 0;
+    color: lightgray;
+}
+
+button, .button-like
+{
+    font-size: 1.2em;
+    padding: .6rem 1rem;
+    min-width: 7em;
+    background: none;
+    border: 2px solid #3c3c3c;
+    border-radius: 2px;
+    color: #999;
+    margin: .5rem 1rem;
+    overflow: hidden;
+    position: relative;
+    transition: .5s ease, border-width .1s linear, padding .1s linear;
+    text-transform: uppercase;
+}
+
+button::before, .button-like::before
+{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("/images/vertical-high-res-bg.png");
+    background-attachment: fixed;
+    background-position: center center;
+    transition: left .5s ease;
+
+    -webkit-filter: brightness(.75) blur(2px);
+    -moz-filter: brightness(.75) blur(2px);
+    -o-filter: brightness(.75) blur(2px);
+    filter: brightness(.75) blur(2px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+}
+
+button.primary-button, .button-like.primary-button, button:hover, .button-like:hover
+{
+    color: black;
+    border-width: 0;
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    padding: calc(.6rem + 2px) calc(1rem + 2px);
+}
+
+button:hover, .button-like:hover
+{
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
+}
+
+button.primary-button::before, .button-like.primary-button::before, button:hover::before, .button-like:hover::before
+{
+    left: 0;
+}
+
+.glass, .black, footer
+{
+    color: black;
+}
+
+.glass-bg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/vertical-high-res-bg.png");
+    background-attachment: fixed;
+    background-size: 120%;
+
+    opacity: .8;
+    transform: scale(1.05); /*To remove the nasty black borders the blur filter leaves behind*/
+    overflow: hidden;
+}
+
+.glass-bg /*Could be applied to more elements that need a strong blur*/
+{
+    /* filter: brightness(.75) blur(4px); */
+    -webkit-filter: brightness(.75) blur(10px);
+    -moz-filter: brightness(.75) blur(10px);
+    -o-filter: brightness(.75) blur(10px);
+    filter: brightness(.75) blur(10px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='10');
+}
+
+@media DISABLED
+{
+    .glass-bg::before
+    {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+    
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.5+0,0.82+15,0.9+50,0.82+85,0.5+100 */
+        background: -moz-linear-gradient(left, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.82) 15%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.82) 85%, rgba(255,255,255,0.5) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.82) 15%,rgba(255,255,255,0.9) 50%,rgba(255,255,255,0.82) 85%,rgba(255,255,255,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.82) 15%,rgba(255,255,255,0.9) 50%,rgba(255,255,255,0.82) 85%,rgba(255,255,255,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#80ffffff',GradientType=1 ); /* IE6-9 */
+    
+        mix-blend-mode: lighten;
+    }
+}
+
+.toggle
+{
+    cursor: pointer;
+}
+
+.arial-icon
+{
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    font-weight: 100;
+}
+
+/***********************/
+/*  BROWSER SPECIFICS  */
+/***********************/
+
+@supports (-ms-ime-align:auto) /*IE*/
+{
+    .glass-bg
+    {
+        transform: none;
+    }
+}
+
+
+/*********************/
+/* RESPONSIVE DESIGN */
+/*********************/
+
+@media screen and (max-width: 1000px)
+{
+    body
+    {
+        font-size: 1.2em;
+    }
+
+    button
+    {
+        font-size: 2em;
+    }
+
+    .toggle-nav, .nav-top-lane .arial-icon
+    {
+        font-size: 3em!important;
+    }
+
+    .glass-bg
+    {
+        opacity: .95;
+        -webkit-filter: none;
+        -moz-filter: none;
+        -ms-filter: none;
+        -o-filter: none;
+        filter: none;
+        background-image: url("/images/vertical-blurred-bg-darkened.png");
+        background-size: cover!important;
+    }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape)
+{
+    body
+    {
+        font-size: .8em;
+    }
+
+    .nav-top-lane .arial-icon
+    {
+        font-size: 2.5em!important;
+    }
+}
