@@ -6,10 +6,10 @@ nav.top-level-nav
     width: 25em;
     height: 100vh;
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 2rem 0;
     z-index: 5;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
-    overflow: hidden;
+    overflow: auto;
     /* transition: left 1.5s cubic-bezier(1, 0, 0.17, 1); */
     transition: left 1.5s cubic-bezier(1, 0.05, 0.44, 1), width 1s cubic-bezier(1, 0.05, 0.44, 1);
 }
@@ -17,6 +17,18 @@ nav.top-level-nav
 nav.top-level-nav.active
 {
     left: 0;
+}
+
+nav.top-level-nav .glass-bg-wrapper
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: -1;
 }
 
 nav.top-level-nav .glass-bg
@@ -42,9 +54,82 @@ nav.top-level-nav .nav-content
     z-index: 2;
 }
 
+nav.top-level-nav .nav-top-lane
+{
+    padding: 0 2rem;
+}
+
 nav.top-level-nav .nav-top-lane .toggle
 {
     font-size: 1.5em;
+}
+
+nav.top-level-nav .nav-ul-wrapper
+{
+    margin-top: 2rem;
+    max-height: 85%;
+    overflow-x: visible;
+    overflow-y: auto;
+}
+
+nav.top-level-nav ul
+{
+    list-style: none;
+    font-size: 2em;
+    padding: 0 2rem;
+}
+
+nav.top-level-nav li
+{
+    display: block;
+    width: auto;
+    position: relative;
+}
+
+nav.top-level-nav li a
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+nav.top-level-nav li.branch::before
+{
+    content: "\f105";
+    font-family: Fontawesome;
+    font-size: .8em;
+    display: inline-block;
+    position: absolute;
+    top: .25em;
+    left: -.6em;
+}
+
+nav.top-level-nav ul > li.branch > a
+{
+    height: auto;
+}
+
+nav.top-level-nav li.branch ul
+{
+    display: none;
+}
+
+nav.top-level-nav li.branch.active > ul
+{
+    display: block;
+}
+
+nav.top-level-nav .nav-ul-wrapper > ul > li
+{
+    font-size: 1.25em;
+    border-bottom: 1px solid black;
+}
+
+nav.top-level-nav .nav-ul-wrapper > ul > li ul li
+{
+    font-size: .4em;
 }
 
 .page-body
