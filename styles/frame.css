@@ -76,7 +76,12 @@ nav.top-level-nav ul
 {
     list-style: none;
     font-size: 2em;
-    padding: 0 2rem;
+    padding-left: 2rem;
+}
+
+nav.top-level-nav .nav-ul-wrapper > ul
+{
+    padding-right: 2rem;
 }
 
 nav.top-level-nav li
@@ -102,9 +107,14 @@ nav.top-level-nav li.branch::before
     font-size: .8em;
     display: inline-block;
     position: absolute;
-    top: .25em;
+    top: .35em;
     left: -.6em;
     transition: transform .1s ease;
+}
+
+nav.top-level-nav .nav-ul-wrapper > ul > li.branch::before
+{
+    top: .5em;
 }
 
 nav.top-level-nav li.branch.active::before
@@ -153,6 +163,11 @@ nav.top-level-nav .nav-ul-wrapper > ul > li
 {
     font-size: 1.25em;
     border-bottom: 1px solid black;
+}
+
+nav.top-level-nav .nav-ul-wrapper > ul > li > a
+{
+    padding: .15em 0 .05em 0;
 }
 
 nav.top-level-nav .nav-ul-wrapper > ul > li ul li
