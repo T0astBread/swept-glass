@@ -27,11 +27,33 @@
         <script src="https://use.fontawesome.com/5ddb7efb0d.js"></script>
     </head>
     <body>
-        <nav class="top-level-nav toggleable glass">
-            <div class="glass-bg"></div>
+        <nav class="top-level-nav toggleable glass active">
+            <div class="glass-bg-wrapper">
+                <div class="glass-bg"></div>
+            </div>
             <div class="nav-content">
                 <div class="nav-top-lane">
                     <span class="toggle arial-icon smaller-font">╳</span>
+                </div>
+                <div class="nav-ul-wrapper">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">News</a></li>
+                        <li class="branch toggleable transition-height">
+                            <a class="toggle" href="">Products</a>
+                            <ul class="big">
+                                <li><a href="">This Thing</a></li>
+                                <li class="branch toggleable">
+                                    <a href="" class="toggle">That Thing</a>
+                                    <ul>
+                                        <li><a href="">Detail 1</a></li>
+                                        <li><a href="">Detail 2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="">Help</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
