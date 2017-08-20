@@ -104,6 +104,12 @@ nav.top-level-nav li.branch::before
     position: absolute;
     top: .25em;
     left: -.6em;
+    transition: transform .1s ease;
+}
+
+nav.top-level-nav li.branch.active::before
+{
+    transform: rotate(90deg);
 }
 
 nav.top-level-nav ul > li.branch > a
@@ -113,12 +119,34 @@ nav.top-level-nav ul > li.branch > a
 
 nav.top-level-nav li.branch ul
 {
-    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1.5s ease;
 }
 
 nav.top-level-nav li.branch.active > ul
 {
-    display: block;
+    max-height: 2em;
+}
+
+nav.top-level-nav li.branch.active > ul.big
+{
+    max-height: 4em;
+}
+
+nav.top-level-nav li.branch.active > ul.bigger
+{
+    max-height: 8em;
+}
+
+nav.top-level-nav li.branch.active > ul.biggest
+{
+    max-height: 12em;
+}
+
+nav.top-level-nav li.branch.active > ul.biggest-2
+{
+    max-height: 24em;
 }
 
 nav.top-level-nav .nav-ul-wrapper > ul > li
