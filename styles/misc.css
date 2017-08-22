@@ -63,6 +63,7 @@ button::before, .button-like::before
     background-image: url("/swept-glass/images/vertical-high-res-bg.png");
     background-attachment: fixed;
     background-position: center center;
+    clip-path: inset(0 5px 0 0);
     transition: left .5s ease;
 
     -webkit-filter: brightness(.75) blur(2px);
@@ -89,6 +90,7 @@ button:hover, .button-like:hover
 button.primary-button::before, .button-like.primary-button::before, button:hover::before, .button-like:hover::before
 {
     left: 0;
+    clip-path: inset(0 0 0 0);
 }
 
 .glass, .black, footer
