@@ -1,0 +1,128 @@
+button, .button-like
+{
+    font-size: 1.2em;
+    padding: .6rem 1rem;
+    min-width: 7em;
+    background: none;
+    border: 2px solid #3c3c3c;
+    border-radius: 2px;
+    color: #999;
+    margin: .5rem 1rem;
+    overflow: hidden;
+    position: relative;
+    transition: .5s ease, border-width .1s linear, padding .1s linear;
+    text-transform: uppercase;
+}
+
+button::before, .button-like::before
+{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    clip-path: inset(0 5px 0 0);
+    transition: left .5s ease;
+}
+
+button.primary-button, .button-like.primary-button, button:hover, .button-like:hover
+{
+    color: black;
+    border-width: 0;
+    border-radius: 0;
+    padding: calc(.6rem + 2px) calc(1rem + 2px);
+}
+
+button.primary-button::before, .button-like.primary-button::before, button:hover::before, .button-like:hover::before
+{
+    left: 0;
+    clip-path: inset(0 0 0 0);
+}
+
+input[type=radio]
+{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type=radio]::before
+{
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(.75rem);
+    box-shadow: 0 0 black;
+}
+
+input[type=radio]::after
+{
+    content: " ";
+    position: absolute;
+    left: .23rem;
+    top: .23rem;
+    width: 1.04rem;
+    height: 1.04rem;
+    border-radius: 50%;
+    background-color: #262626;
+}
+
+input[type=radio]::after
+{
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .4);
+    transition: box-shadow .5s ease;
+}
+
+input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::after
+{
+    /* box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.8); */
+    box-shadow: inset 0 0 15px 0px rgba(0, 0, 0, 0.8);
+}
+
+input[type=radio]:checked::after
+{
+    clip-path: circle(.5rem);
+}
+
+
+/* Button Groups */
+
+.block-button-group
+{
+    margin: .5rem 1rem;
+}
+
+.block-button-group > button, .block-button-group > .button-like, .block-button-group > .button-group-member
+{
+    display: block;
+}
+
+.button-group-member
+{
+    margin: .5rem 0 .5rem 0;
+}
+
+
+/*********************/
+/* RESPONSIVE DESIGN */
+/*********************/
+
+@media screen and (max-width: 1000px)
+{
+    button
+    {
+        font-size: 2em;
+    }
+}
