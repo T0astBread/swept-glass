@@ -18,12 +18,22 @@ body
     font-size: 1em;
 }
 
-h1
+h1, h2
 {
     font-family: Raleway, 'Courier New', Courier, serif;
     color: white;
+}
+
+h1
+{
     font-size: 5em;
     margin: 3.5rem 0;
+}
+
+h2
+{
+    font-size: 1.5em;
+    margin: 2.5rem 0 1rem 0;
 }
 
 p
@@ -34,63 +44,22 @@ p
     color: lightgray;
 }
 
-button, .button-like
+label
 {
-    font-size: 1.2em;
-    padding: .6rem 1rem;
-    min-width: 7em;
-    background: none;
-    border: 2px solid #3c3c3c;
-    border-radius: 2px;
-    color: #999;
-    margin: .5rem 1rem;
-    overflow: hidden;
-    position: relative;
-    transition: .5s ease, border-width .1s linear, padding .1s linear;
-    text-transform: uppercase;
+    color: #666;
+    font-size: 1.25em;
 }
 
-button::before, .button-like::before
+input ~ label
 {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url("/swept-glass/images/vertical-high-res-bg.png");
-    background-attachment: fixed;
-    background-position: center center;
-    clip-path: inset(0 5px 0 0);
-    transition: left .5s ease;
-
-    -webkit-filter: brightness(.75) blur(2px);
-    -moz-filter: brightness(.75) blur(2px);
-    -o-filter: brightness(.75) blur(2px);
-    filter: brightness(.75) blur(2px);
-    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: .35rem;
 }
 
-button.primary-button, .button-like.primary-button, button:hover, .button-like:hover
+fieldset
 {
-    color: black;
-    border-width: 0;
-    border-radius: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-    padding: calc(.6rem + 2px) calc(1rem + 2px);
-}
-
-button:hover, .button-like:hover
-{
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
-}
-
-button.primary-button::before, .button-like.primary-button::before, button:hover::before, .button-like:hover::before
-{
-    left: 0;
-    clip-path: inset(0 0 0 0);
+    border: none;
 }
 
 .glass, .black, footer
@@ -147,6 +116,35 @@ button.primary-button::before, .button-like.primary-button::before, button:hover
     }
 }
 
+/*Glassy BG*/
+button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after
+{
+    
+    /* background-image: url("/swept-glass/images/vertical-high-res-bg.png"); */
+    background-image: url("/swept-glass/images/vertical-outline-light-blur.png");
+    background-attachment: fixed;
+    background-position: center center;
+
+    /* -webkit-filter: brightness(.75) blur(2px);
+    -moz-filter: brightness(.75) blur(2px);
+    -o-filter: brightness(.75) blur(2px);
+    filter: brightness(.75) blur(2px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2'); */
+}
+
+/*Standard form control shadow*/
+button.primary-button, .button-like.primary-button, button:hover, .button-like:hover, input[type=radio]
+{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    transition: box-shadow .5s ease;
+}
+
+/*Standard form control hover shadow*/
+button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio]
+{
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
+}
+
 .toggle
 {
     cursor: pointer;
@@ -158,6 +156,7 @@ button.primary-button::before, .button-like.primary-button::before, button:hover
     font-size: 2.5em;
     font-weight: 100;
 }
+
 
 /***********************/
 /*  BROWSER SPECIFICS  */
@@ -181,11 +180,6 @@ button.primary-button::before, .button-like.primary-button::before, button:hover
     body
     {
         font-size: 1.2em;
-    }
-
-    button
-    {
-        font-size: 2em;
     }
 
     .toggle-nav, .nav-top-lane .arial-icon
