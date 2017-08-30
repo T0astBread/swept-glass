@@ -117,7 +117,7 @@ fieldset
 }
 
 /*Glassy BG*/
-button::before, .button-like::before, input[type=radio]::before, input[type=radio]:checked::after
+button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after
 {
     
     /* background-image: url("/swept-glass/images/vertical-high-res-bg.png"); */
