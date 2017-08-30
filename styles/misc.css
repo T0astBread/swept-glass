@@ -90,6 +90,44 @@ progress::-moz-progress-bar
     border-radius: 1.5rem;
 }
 
+.tooltip
+{
+    position: relative;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.tooltip.active, progress:hover ~ .tooltip, .progress-like:hover ~ .tooltip
+{
+    opacity: 1;
+}
+
+.tooltip-inner
+{
+    content: "fkdsjf";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, .4);
+    color: #666;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    padding: .2rem;
+    vertical-align: middle;
+}
+
+.tooltip::before
+{
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right-color: rgba(0, 0, 0, .4);
+    border-left-width: 0;
+}
+
 .glass, .black, footer
 {
     color: black;
