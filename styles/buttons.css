@@ -127,6 +127,16 @@ input[type=radio]:checked::after
     margin: .5rem 0 .5rem 0;
 }
 
+.button-group-member:first-child
+{
+    margin-top: 0;
+}
+
+.button-group-member:last-child
+{
+    margin-bottom: 0;
+}
+
 
 /*********************/
 /* RESPONSIVE DESIGN */
