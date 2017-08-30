@@ -62,6 +62,34 @@ fieldset
     border: none;
 }
 
+progress, .progress-like
+{
+    height: 1rem;
+    border-radius: 1.5rem;
+    background: #333;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-progress-appearance: none;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar
+{
+    background: #333;
+    border-radius: 1.5rem;
+}
+
+progress::-webkit-progress-value, .progress-like .progress-like-value
+{
+    border-radius: 1.5rem;
+}
+
+progress::-moz-progress-bar
+{
+    border-radius: 1.5rem;
+}
+
 .glass, .black, footer
 {
     color: black;
@@ -116,8 +144,9 @@ fieldset
     }
 }
 
+
 /*Glassy BG*/
-button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after
+button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after, .progress-like .progress-like-value
 {
     
     /* background-image: url("/swept-glass/images/vertical-high-res-bg.png"); */
@@ -132,6 +161,22 @@ button::before, .button-like::before, input[type=radio]::before, input[type=radi
     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2'); */
 }
 
+/*For some reason vendor-specific selectors can't be combined so I have to copy these rulesets*/
+progress::-webkit-progress-value
+{
+    background-image: url("/swept-glass/images/vertical-outline-light-blur.png");
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+progress::-moz-progress-bar
+{
+    background-image: url("/swept-glass/images/vertical-outline-light-blur.png");
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+
 /*Standard form control shadow*/
 button.primary-button, .button-like.primary-button, button:hover, .button-like:hover, input[type=radio]
 {
@@ -140,10 +185,34 @@ button.primary-button, .button-like.primary-button, button:hover, .button-like:h
 }
 
 /*Standard form control hover shadow*/
-button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio]
+button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio], .progress-like .progress-like-value
 {
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
 }
+
+/*Again, special treatment for our special snowflakes*/
+progress::-webkit-progress-value
+{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    transition: box-shadow .5s ease;
+}
+
+progress::-webkit-progress-value:hover, .progress-like .progress-like-value:hover
+{
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
+}
+
+progress::-moz-progress-bar
+{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    transition: box-shadow .5s ease;
+}
+
+progress::-moz-progress-bar:hover
+{
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
+}
+
 
 .toggle
 {
