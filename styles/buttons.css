@@ -14,6 +14,12 @@ button, .button-like
     text-transform: uppercase;
 }
 
+button ~ button, button ~ .button-like, .button-like ~ button, .button-like ~ .button-like
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 button::before, .button-like::before
 {
     content: " ";
