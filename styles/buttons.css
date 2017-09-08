@@ -70,6 +70,7 @@ input[type=radio]::before
     width: 100%;
     height: 100%;
     clip-path: circle(.75rem);
+    border-radius: 50%;
     box-shadow: 0 0 black;
 }
 
@@ -94,6 +95,7 @@ input[type=radio]:active::after
 input[type=radio]:checked::after
 {
     clip-path: circle(.5rem);
+    border-radius: 50%;
     box-shadow: inset 0 0 0px .1rem #262626!important;
 }
 
