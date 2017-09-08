@@ -42,6 +42,13 @@ h3
     margin: 2.5rem 0 1rem 0;
 }
 
+h4
+{
+    font-size: 1.45em;
+    font-weight: 400;
+    margin: 1.66rem 0 1.33rem 0;
+}
+
 section
 {
     margin: 5em 0 5em 0;
@@ -213,8 +220,16 @@ progress::-moz-progress-bar
     height: 100%;
     stroke: #262626;
     fill: none;
-    stroke-width: 1rem;
+    stroke-width: 2rem;
     stroke-dasharray: 100, 999; /*First value: 0 - 125*/
+}
+
+.outline-circle.bold::after
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    top: .5rem;
+    left: .5rem;;
 }
 
 .spinner
@@ -279,7 +294,7 @@ progress::-moz-progress-bar
     height: 2.5rem;
 }
 
-.spinner.spinner-small::before, .outline-circle svg
+.spinner.spinner-small::before, .spinner.spinner-small svg
 {
     clip-path: circle(1.25rem);
 }
@@ -289,12 +304,74 @@ progress::-moz-progress-bar
     clip-path: circle(1.2rem);
 }
 
-.spinner.spinner-small::after
+.spinner.spinner-small:not(.bold)::after
 {
     width: 1.8rem;
     height: 1.8rem;
     top: .35rem;
     left: .35rem;
+}
+
+.spinner.spinner.spinner-large
+{
+    width: 10rem;
+    height: 10rem;
+    display: block;
+}
+
+@keyframes spinner-large-fill
+{
+    0%
+    {
+        stroke-dasharray: 0, 999;
+    }
+    50%
+    {
+        stroke-dasharray: 450, 999;
+    }
+    100%
+    {
+        stroke-dasharray: 0, 999;
+    }
+}
+
+.spinner.spinner-large::before, .spinner.spinner-large svg
+{
+    clip-path: circle(8rem);
+}
+
+.spinner.spinner-large::before
+{
+    clip-path: circle(7.75rem);
+}
+
+.spinner.spinner-large circle
+{
+    animation-name: spinner-large-fill;
+}
+
+.spinner.spinner-large:not(.bold)::after
+{
+    width: 8rem;
+    height: 8rem;
+    top: 1rem;
+    left: 1rem;
+}
+
+.loading-container
+{
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.loading-container label
+{
+    font-size: 1.5em;
+    display: block;
+    margin-top: .5rem;
 }
 
 .glass, .black, footer
@@ -444,6 +521,17 @@ input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::af
     font-family: Arial, sans-serif;
     font-size: 2.5em;
     font-weight: 100;
+}
+
+.centered
+{
+    text-align: center;
+}
+
+.centered > *
+{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
