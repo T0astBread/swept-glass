@@ -388,7 +388,7 @@ label.loading-anim::after
     content: "...";
     display: inline-block;
     vertical-align: bottom;
-    animation: loading-label-animation 2s infinite;
+    animation: loading-label-animation 2s infinite ease-in-out;
     overflow: hidden;
 }
 
