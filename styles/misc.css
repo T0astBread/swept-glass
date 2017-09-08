@@ -168,6 +168,7 @@ progress::-moz-progress-bar
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
 
 .outline-circle::before, .outline-circle::after
@@ -175,7 +176,7 @@ progress::-moz-progress-bar
     content: " ";
 }
 
-.outline-circle::before, .outline-circle svg
+.outline-circle svg
 {
     clip-path: circle(.5rem);
     border-radius: 50%;
@@ -183,8 +184,8 @@ progress::-moz-progress-bar
 
 .outline-circle::before
 {
-    border: .1rem #262626;
     clip-path: circle(.45rem);
+    border: .1rem #262626;
 }
 
 .outline-circle::after
@@ -267,18 +268,6 @@ progress::-moz-progress-bar
 @keyframes spinner-svg-spin
 {
     50%
-    {
-        transform: rotate(-90deg);
-    }
-    100%
-    {
-        transform: rotate(270deg);
-    }
-}
-
-@keyframes spinner-svg-spin-ms
-{
-    0%
     {
         transform: rotate(-90deg);
     }
@@ -420,6 +409,40 @@ label.loading-anim::after
         /* content: ""; */
         width: 0;
     }
+}
+
+.progress-meter
+{
+    width: 5rem;
+    height: 5rem;
+}
+
+.progress-meter::before
+{
+    clip-path: circle(2.425rem);
+    width: 4.85rem;
+    height: 4.85rem;
+    top: .075rem;
+    left: .075rem;
+}
+
+.progress-meter svg
+{
+    clip-path: circle(2.5rem);
+    transform: rotate(111deg);
+}
+
+.progress-meter circle
+{
+    stroke-dasharray: 56, 150;
+}
+
+.progress-meter::after
+{
+    width: 3.5rem;
+    height: 3.5rem;
+    top: .75rem;
+    left: .75rem;
 }
 
 .glass, .black, footer
@@ -587,6 +610,18 @@ input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::af
 /*  BROWSER SPECIFICS  */
 /***********************/
 
+@keyframes spinner-svg-spin-ms
+{
+    0%
+    {
+        transform: rotate(-90deg);
+    }
+    100%
+    {
+        transform: rotate(270deg);
+    }
+}
+
 @supports (-ms-ime-align: auto) /*Edge*/
 {
     .outline-circle::before
@@ -594,7 +629,7 @@ input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::af
         box-shadow: inset 0 0 0 1px #262626;
     }
 
-    .outline-circle svg
+    .spinner svg
     {
         animation-name: spinner-svg-spin-ms;
         animation-timing-function: linear;

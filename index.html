@@ -81,16 +81,27 @@
                             </fieldset>
                         </section>
                         <section>
-                            <h3>Progress Bar</h3>
-                            <progress max="100" value="40"></progress>
-                            <span class="tooltip" x-unit="%">
-                                <span class="tooltip-inner"></span>
-                            </span>
+                            <h3>Progress Indicators</h3>
+                            <section>
+                                <h4>Progress Bar</h4>
+                                <progress max="100" value="40"></progress>
+                                <span class="tooltip" x-unit="%">
+                                    <span class="tooltip-inner"></span>
+                                </span>
+                            </section>
+                            <section>
+                                <h4>Progress Circle</h4>
+                                <span class="outline-circle progress-meter">
+                                    <svg>
+                                        <!-- <circle class="outer-circle" cx="50%" cy="50%" r="1.25rem"></circle> -->
+                                        <circle class="outer-circle" cx="50%" cy="50%" r="20"></circle>
+                                    </svg>
+                                </span>
+                            </section>
                         </section>
                         <section>
-                            <h3>Spinner</h3>
+                            <h3>Spinners</h3>
                             <span class="outline-circle spinner spinner-small bold" id="spinner-1">
-                                <span class="inner-circle"></span>
                                 <svg>
                                     <!-- <circle class="outer-circle" cx="50%" cy="50%" r="1.25rem"></circle> -->
                                     <circle class="outer-circle" cx="50%" cy="50%" r="20"></circle>
@@ -100,7 +111,6 @@
                             <h4>Large Loading Spinner</h4>
                             <div class="loading-container">
                                 <span class="outline-circle spinner spinner-large" id="spinner-2">
-                                    <span class="inner-circle"></span>
                                     <svg>
                                         <!-- <circle class="outer-circle" cx="50%" cy="50%" r="1.25rem"></circle> -->
                                         <circle class="outer-circle" cx="50%" cy="50%" r="75"></circle>
