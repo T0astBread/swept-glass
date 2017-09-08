@@ -383,6 +383,44 @@ progress::-moz-progress-bar
     margin-top: .5rem;
 }
 
+label.loading-anim::after
+{
+    content: "...";
+    display: inline-block;
+    vertical-align: bottom;
+    animation: loading-label-animation 2s infinite;
+    overflow: hidden;
+}
+
+@keyframes loading-label-animation
+{
+    0%
+    {
+        /* content: ""; */
+        width: 0;
+    }
+    28.333%
+    {
+        /* content: "."; */
+        width: .3em;
+    }
+    56.667%
+    {
+        /* content: ".."; */
+        width: .6em;
+    }
+    85%
+    {
+        /* content: "..."; */
+        width: .85em;
+    }
+    100%
+    {
+        /* content: ""; */
+        width: 0;
+    }
+}
+
 .glass, .black, footer
 {
     color: black;
