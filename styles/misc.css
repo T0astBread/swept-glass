@@ -42,6 +42,13 @@ h3
     margin: 2.5rem 0 1rem 0;
 }
 
+h4
+{
+    font-size: 1.45em;
+    font-weight: 400;
+    margin: 1.66rem 0 1.33rem 0;
+}
+
 section
 {
     margin: 5em 0 5em 0;
@@ -66,7 +73,7 @@ label
     font-size: 1.25em;
 }
 
-input ~ label
+label.inline
 {
     display: inline-block;
     vertical-align: middle;
@@ -144,6 +151,337 @@ progress::-moz-progress-bar
     border-left-width: 0;
 }
 
+.outline-circle
+{
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+}
+
+.outline-circle::before, .outline-circle svg
+{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.outline-circle::before, .outline-circle::after
+{
+    content: " ";
+}
+
+.outline-circle svg
+{
+    clip-path: circle(.5rem);
+    border-radius: 50%;
+}
+
+.outline-circle::before
+{
+    clip-path: circle(.45rem);
+    border: .1rem #262626;
+}
+
+.outline-circle::after
+{
+    background-color: #262626;
+    border-radius: 50%;
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top: .1rem;
+    left: .1rem;
+}
+
+.outline-circle svg, .outline-circle circle
+{
+    animation: 3s infinite ease;
+}
+
+.outline-circle svg
+{
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.outline-circle circle
+{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    stroke: #262626;
+    fill: none;
+    stroke-width: 2rem;
+    stroke-dasharray: 100, 999; /*First value: 0 - 125*/
+}
+
+.outline-circle.bold::after
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    top: .5rem;
+    left: .5rem;;
+}
+
+.spinner
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.spinner svg
+{
+    animation-name: spinner-svg-spin;
+}
+
+.spinner circle
+{
+    animation-name: spinner-fill;
+}
+
+@keyframes spinner-fill
+{
+    0%
+    {
+        stroke-dasharray: 0, 150;
+    }
+    50%
+    {
+        stroke-dasharray: 125, 150;
+    }
+    100%
+    {
+        stroke-dasharray: 0, 150;
+    }
+}
+
+@keyframes spinner-svg-spin
+{
+    50%
+    {
+        transform: rotate(-90deg);
+    }
+    100%
+    {
+        transform: rotate(270deg);
+    }
+}
+
+.spinner.spinner-small
+{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.spinner.spinner-small::before, .spinner.spinner-small svg
+{
+    clip-path: circle(1.25rem);
+}
+
+.spinner.spinner-small::before
+{
+    clip-path: circle(1.2rem);
+    width: 2.4rem;
+    height: 2.4rem;
+    top: .05rem;
+    left: .05rem;
+}
+
+.spinner.spinner-small:not(.bold)::after
+{
+    width: 1.8rem;
+    height: 1.8rem;
+    top: .35rem;
+    left: .35rem;
+}
+
+.spinner.spinner.spinner-large
+{
+    width: 10rem;
+    height: 10rem;
+    display: block;
+}
+
+@keyframes spinner-large-fill
+{
+    0%
+    {
+        stroke-dasharray: 0, 999;
+    }
+    50%
+    {
+        stroke-dasharray: 450, 999;
+    }
+    100%
+    {
+        stroke-dasharray: 0, 999;
+    }
+}
+
+.spinner.spinner-large::before, .spinner.spinner-large svg
+{
+    clip-path: circle(8rem);
+}
+
+.spinner.spinner-large::before
+{
+    width: 9.9rem;
+    height: 9.9rem;
+    position: absolute;
+    top: .05rem;
+    left: .05rem;
+}
+
+.spinner.spinner-large circle
+{
+    stroke-dasharray: 300, 999;
+    animation-name: spinner-large-fill;
+}
+
+.spinner.spinner-large:not(.bold)::after
+{
+    width: 8rem;
+    height: 8rem;
+    top: 1rem;
+    left: 1rem;
+}
+
+.loading-container
+{
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.loading-container label
+{
+    font-size: 1.5em;
+    display: block;
+    margin-top: .5rem;
+}
+
+label.loading-anim::after
+{
+    content: "...";
+    display: inline-block;
+    vertical-align: bottom;
+    animation: loading-label-animation 2s infinite ease-in-out;
+    overflow: hidden;
+    text-align: left;
+}
+
+@keyframes loading-label-animation
+{
+    0%
+    {
+        /* content: ""; */
+        width: 0;
+    }
+    28.333%
+    {
+        /* content: "."; */
+        width: .3em;
+    }
+    56.667%
+    {
+        /* content: ".."; */
+        width: .6em;
+    }
+    85%
+    {
+        /* content: "..."; */
+        width: .85em;
+    }
+    100%
+    {
+        /* content: ""; */
+        width: 0;
+    }
+}
+
+.progress-circle
+{
+    width: 5rem;
+    height: 5rem;
+    margin-right: .75rem;
+}
+
+.progress-circle::before
+{
+    clip-path: circle(2.425rem);
+    width: 4.85rem;
+    height: 4.85rem;
+    top: .075rem;
+    left: .075rem;
+}
+
+.progress-circle svg
+{
+    clip-path: circle(2.5rem);
+    transform: rotate(270deg);
+}
+
+.progress-circle circle
+{
+    stroke-width: 3rem;
+    stroke-dasharray: 56, 150; /*dasharray = 125 * (1 - progress/100)*/
+}
+
+.progress-circle::after
+{
+    width: 3.5rem;
+    height: 3.5rem;
+    top: .75rem;
+    left: .75rem;
+}
+
+.progress-circle .progress-circle-text
+{
+    text-align: center;
+    color: lightgray;
+    font-size: 1.1em;
+}
+
+.progress-circle .progress-circle-text, .progress-circle .progress-circle-text.multiline *
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    vertical-align: middle;
+    line-height: 5rem;
+}
+
+.progress-circle-text.multiline .progress-circle-value
+{
+    display: block;
+    line-height: 4rem;
+}
+
+.progress-circle-text.multiline .progress-circle-unit
+{
+    height: 4rem;
+    line-height: 4rem;
+    top: auto;
+    bottom: 0;
+    font-size: .7em;
+    pointer-events: none;
+}
+
 .glass, .black, footer
 {
     color: black;
@@ -200,7 +538,7 @@ progress::-moz-progress-bar
 
 
 /*Glassy BG*/
-button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after, .progress-like .progress-like-value
+button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after, .progress-like .progress-like-value, .outline-circle::before
 {
     
     /* background-image: url("/swept-glass/images/vertical-high-res-bg.png"); */
@@ -232,14 +570,14 @@ progress::-moz-progress-bar
 
 
 /*Standard form control shadow*/
-button.primary-button, .button-like.primary-button, button:hover, .button-like:hover, input[type=radio]
+button.primary-button, .button-like.primary-button, button:hover, .button-like:hover, input[type=radio], .outline-circle
 {
     box-shadow: 0 0 10px rgba(0, 0, 0, .4);
     transition: box-shadow .5s ease;
 }
 
 /*Standard form control hover shadow*/
-button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio], .progress-like .progress-like-value
+button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio], .progress-like .progress-like-value, .outline-circle:hover
 {
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
 }
@@ -267,6 +605,19 @@ progress::-moz-progress-bar:hover
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
 }
 
+/*Inset shadow*/
+input[type=radio]::after, .outline-circle::after
+{
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .4);
+    transition: box-shadow .5s ease;
+}
+
+input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::after, .outline-circle:hover::after
+{
+    /* box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.8); */
+    box-shadow: inset 0 0 15px 0px rgba(0, 0, 0, 0.8);
+}
+
 
 .toggle
 {
@@ -280,13 +631,78 @@ progress::-moz-progress-bar:hover
     font-weight: 100;
 }
 
+.centered
+{
+    text-align: center;
+}
+
+.centered > *
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /***********************/
 /*  BROWSER SPECIFICS  */
 /***********************/
 
-@supports (-ms-ime-align:auto) /*IE*/
+@keyframes spinner-svg-spin-ms
 {
+    0%
+    {
+        transform: rotate(-90deg);
+    }
+    100%
+    {
+        transform: rotate(270deg);
+    }
+}
+
+@supports (-ms-ime-align: auto) /*Edge*/
+{
+    .outline-circle::before
+    {
+        box-shadow: inset 0 0 0 1px #262626;
+    }
+
+    .spinner svg
+    {
+        animation-name: spinner-svg-spin-ms;
+        animation-timing-function: linear;
+        animation-duration: .75s;
+    }
+
+    .spinner.spinner-large svg
+    {
+        animation-duration: 2s;
+    }
+
+    .outline-circle circle
+    {
+        animation: none!important;
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) /*IE*/
+{
+    .outline-circle::before
+    {
+        box-shadow: inset 0 0 0 1px #262626;
+    }
+
+    .spinner svg
+    {
+        animation-name: spinner-svg-spin-ms;
+        animation-timing-function: linear;
+        animation-duration: .75s;
+    }
+
+    .outline-circle circle
+    {
+        animation: none!important;
+    }
+
     .glass-bg
     {
         transform: none;
