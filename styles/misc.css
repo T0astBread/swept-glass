@@ -66,7 +66,7 @@ label
     font-size: 1.25em;
 }
 
-input ~ label
+label.inline
 {
     display: inline-block;
     vertical-align: middle;
@@ -144,6 +144,159 @@ progress::-moz-progress-bar
     border-left-width: 0;
 }
 
+.outline-circle
+{
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+}
+
+.outline-circle::before, .outline-circle svg
+{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.outline-circle::before, .outline-circle::after
+{
+    content: " ";
+}
+
+.outline-circle::before, .outline-circle svg
+{
+    clip-path: circle(.5rem);
+    border-radius: 50%;
+}
+
+.outline-circle::before
+{
+    border: .1rem #262626;
+    clip-path: circle(.45rem);
+}
+
+.outline-circle::after
+{
+    background-color: #262626;
+    border-radius: 50%;
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top: .1rem;
+    left: .1rem;
+}
+
+.outline-circle svg, .outline-circle circle
+{
+    animation: 3s infinite ease;
+}
+
+.outline-circle svg
+{
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.outline-circle circle
+{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    stroke: #262626;
+    fill: none;
+    stroke-width: 1rem;
+    stroke-dasharray: 100, 999; /*First value: 0 - 125*/
+}
+
+.spinner
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.spinner svg
+{
+    animation-name: spinner-svg-spin;
+}
+
+.spinner circle
+{
+    animation-name: spinner-fill;
+}
+
+@keyframes spinner-fill
+{
+    0%
+    {
+        stroke-dasharray: 0, 150;
+    }
+    50%
+    {
+        stroke-dasharray: 125, 150;
+    }
+    100%
+    {
+        stroke-dasharray: 0, 150;
+    }
+}
+
+@keyframes spinner-svg-spin
+{
+    50%
+    {
+        transform: rotate(-90deg);
+    }
+    100%
+    {
+        transform: rotate(270deg);
+    }
+}
+
+@keyframes spinner-svg-spin-ms
+{
+    0%
+    {
+        transform: rotate(-90deg);
+    }
+    100%
+    {
+        transform: rotate(270deg);
+    }
+}
+
+.spinner.spinner-small
+{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.spinner.spinner-small::before, .outline-circle svg
+{
+    clip-path: circle(1.25rem);
+}
+
+.spinner.spinner-small::before
+{
+    clip-path: circle(1.2rem);
+}
+
+.spinner.spinner-small::after
+{
+    width: 1.8rem;
+    height: 1.8rem;
+    top: .35rem;
+    left: .35rem;
+}
+
 .glass, .black, footer
 {
     color: black;
@@ -200,7 +353,7 @@ progress::-moz-progress-bar
 
 
 /*Glassy BG*/
-button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after, .progress-like .progress-like-value
+button::before, .button-like::before, input[type=radio]::before, input[type=radio]:active::after, input[type=radio]:checked::after, .progress-like .progress-like-value, .outline-circle::before
 {
     
     /* background-image: url("/swept-glass/images/vertical-high-res-bg.png"); */
@@ -232,14 +385,14 @@ progress::-moz-progress-bar
 
 
 /*Standard form control shadow*/
-button.primary-button, .button-like.primary-button, button:hover, .button-like:hover, input[type=radio]
+button.primary-button, .button-like.primary-button, button:hover, .button-like:hover, input[type=radio], .outline-circle
 {
     box-shadow: 0 0 10px rgba(0, 0, 0, .4);
     transition: box-shadow .5s ease;
 }
 
 /*Standard form control hover shadow*/
-button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio], .progress-like .progress-like-value
+button:hover, .button-like:hover, input[type=radio]:hover, .button-group-member:hover input[type=radio], .progress-like .progress-like-value, .outline-circle:hover
 {
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
 }
@@ -267,6 +420,19 @@ progress::-moz-progress-bar:hover
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
 }
 
+/*Inset shadow*/
+input[type=radio]::after, .outline-circle::after
+{
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .4);
+    transition: box-shadow .5s ease;
+}
+
+input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::after, .outline-circle:hover::after
+{
+    /* box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.8); */
+    box-shadow: inset 0 0 15px 0px rgba(0, 0, 0, 0.8);
+}
+
 
 .toggle
 {
@@ -285,8 +451,45 @@ progress::-moz-progress-bar:hover
 /*  BROWSER SPECIFICS  */
 /***********************/
 
-@supports (-ms-ime-align:auto) /*IE*/
+@supports (-ms-ime-align: auto) /*Edge*/
 {
+    .outline-circle::before
+    {
+        box-shadow: inset 0 0 0 1px #262626;
+    }
+
+    .outline-circle svg
+    {
+        animation-name: spinner-svg-spin-ms;
+        animation-timing-function: linear;
+        animation-duration: .75s;
+    }
+
+    .outline-circle circle
+    {
+        animation: none!important;
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) /*IE*/
+{
+    .outline-circle::before
+    {
+        box-shadow: inset 0 0 0 1px #262626;
+    }
+
+    .outline-circle svg
+    {
+        animation-name: spinner-svg-spin-ms;
+        animation-timing-function: linear;
+        animation-duration: .75s;
+    }
+
+    .outline-circle circle
+    {
+        animation: none!important;
+    }
+
     .glass-bg
     {
         transform: none;

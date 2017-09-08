@@ -73,10 +73,10 @@
                             <h3>Button Group with Radio Buttons</h3>
                             <fieldset class="block-button-group button-group">
                                 <div class="button-group-member">
-                                    <input type="radio" id="radio-1" name="radio"><label for="radio-1">Radio Button 1</label>
+                                    <input type="radio" id="radio-1" name="radio"><label for="radio-1" class="inline">Radio Button 1</label>
                                 </div>
                                 <div class="button-group-member">
-                                    <input type="radio" id="radio-2" name="radio"><label for="radio-2">Radio Button 2</label>
+                                    <input type="radio" id="radio-2" name="radio"><label for="radio-2" class="inline">Radio Button 2</label>
                                 </div>
                             </fieldset>
                         </section>
@@ -84,8 +84,19 @@
                             <h3>Progress Bar</h3>
                             <progress max="100" value="40"></progress>
                             <span class="tooltip" x-unit="%">
-                                    <span class="tooltip-inner"></span>
+                                <span class="tooltip-inner"></span>
                             </span>
+                        </section>
+                        <section>
+                            <h3>Spinner</h3>
+                            <span class="outline-circle spinner spinner-small" id="spinner-1">
+                                <span class="inner-circle"></span>
+                                <svg>
+                                    <!-- <circle class="outer-circle" cx="50%" cy="50%" r="1.25rem"></circle> -->
+                                    <circle class="outer-circle" cx="50%" cy="50%" r="20"></circle>
+                                </svg>
+                            </span>
+                            <label for="spinner-1" class="inline">Loading</label>
                         </section>
                     </section>
                     <section>
