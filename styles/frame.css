@@ -220,12 +220,12 @@ main, .footer-content
     transition: margin-left 1.5s cubic-bezier(1, 0.05, 0.44, 1);
 }
 
-main :first-child, main section:first-of-type
+main > :first-child, main > section:first-of-type
 {
     margin-top: 0;
 }
 
-main :last-child
+main > :last-child
 {
     margin-bottom: 0;
 }
