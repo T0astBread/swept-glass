@@ -41,11 +41,31 @@
                 <div class="nav-ul-wrapper">
                     <ul>
                         <li><a href="">Home</a></li>
-                        <li class="branch toggleable transition-height">
+                        <li class="branch toggleable transition-height bigger">
                             <a class="toggle" href="">UI Elements</a>
-                            <ul>
-                                <li><a href="">Buttons</a></li>
-                                <li><a href="">Button Group</a></li>
+                            <ul class="bigger">
+                                <li class="branch toggleable transition-height">
+                                    <a class="toggle" href="">Buttons</a>
+                                    <ul>
+                                        <li><a href="">Primary</a></li>
+                                        <li><a href="">Secondary</a></li>
+                                        <li><a href="">Radio Buttons</a></li>
+                                    </ul>
+                                </li>
+                                <li class="branch toggleable transition-height">
+                                    <a class="toggle" href="">Progress Indicators</a>
+                                    <ul>
+                                        <li><a href="">Progress Bar</a></li>
+                                        <li><a href="">Progress Circle</a></li>
+                                    </ul>
+                                </li>
+                                <li class="branch toggleable transition-height">
+                                    <a class="toggle" href="">Spinners</a>
+                                    <ul>
+                                        <li><a href="">Spinner</a></li>
+                                        <li><a href="">Large Loading Spinner</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li><a href="">Lorem Ipsum</a></li>
@@ -68,17 +88,17 @@
                         <section>
                             <h3>Buttons</h3>
                             <button class="primary-button">Primary Button</button><button>Button</button>
-                        </section>
-                        <section>
-                            <h3>Button Group with Radio Buttons</h3>
-                            <fieldset class="block-button-group button-group">
-                                <div class="button-group-member">
-                                    <input type="radio" id="radio-1" name="radio"><label for="radio-1" class="inline">Radio Button 1</label>
-                                </div>
-                                <div class="button-group-member">
-                                    <input type="radio" id="radio-2" name="radio"><label for="radio-2" class="inline">Radio Button 2</label>
-                                </div>
-                            </fieldset>
+                            <section>
+                                <h4>Radio Buttons</h4>
+                                <fieldset class="block-button-group button-group">
+                                    <div class="button-group-member">
+                                        <input type="radio" id="radio-1" name="radio"><label for="radio-1" class="inline">Radio Button 1</label>
+                                    </div>
+                                    <div class="button-group-member">
+                                        <input type="radio" id="radio-2" name="radio"><label for="radio-2" class="inline">Radio Button 2</label>
+                                    </div>
+                                </fieldset>
+                            </section>
                         </section>
                         <section>
                             <h3>Progress Indicators</h3>
@@ -91,11 +111,24 @@
                             </section>
                             <section>
                                 <h4>Progress Circle</h4>
-                                <span class="outline-circle progress-meter">
+                                <span class="outline-circle progress-circle" x-decimals="0" x-multiplier="100">
                                     <svg>
                                         <!-- <circle class="outer-circle" cx="50%" cy="50%" r="1.25rem"></circle> -->
                                         <circle class="outer-circle" cx="50%" cy="50%" r="20"></circle>
                                     </svg>
+                                    <span class="progress-circle-text">
+                                        <span class="progress-circle-value"></span><span class="progress-circle-unit">%</span>
+                                    </span>
+                                </span>
+                                <span class="outline-circle progress-circle" x-decimals="0" x-multiplier="130">
+                                    <svg>
+                                        <!-- <circle class="outer-circle" cx="50%" cy="50%" r="1.25rem"></circle> -->
+                                        <circle class="outer-circle" cx="50%" cy="50%" r="20"></circle>
+                                    </svg>
+                                    <span class="progress-circle-text multiline">
+                                        <span class="progress-circle-value"></span>
+                                        <span class="progress-circle-unit">km/h</span>
+                                    </span>
                                 </span>
                             </section>
                         </section>

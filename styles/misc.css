@@ -411,13 +411,14 @@ label.loading-anim::after
     }
 }
 
-.progress-meter
+.progress-circle
 {
     width: 5rem;
     height: 5rem;
+    margin-right: .75rem;
 }
 
-.progress-meter::before
+.progress-circle::before
 {
     clip-path: circle(2.425rem);
     width: 4.85rem;
@@ -426,23 +427,59 @@ label.loading-anim::after
     left: .075rem;
 }
 
-.progress-meter svg
+.progress-circle svg
 {
     clip-path: circle(2.5rem);
-    transform: rotate(111deg);
+    transform: rotate(270deg);
 }
 
-.progress-meter circle
+.progress-circle circle
 {
-    stroke-dasharray: 56, 150;
+    stroke-width: 3rem;
+    stroke-dasharray: 56, 150; /*dasharray = 125 * (1 - progress/100)*/
 }
 
-.progress-meter::after
+.progress-circle::after
 {
     width: 3.5rem;
     height: 3.5rem;
     top: .75rem;
     left: .75rem;
+}
+
+.progress-circle .progress-circle-text
+{
+    text-align: center;
+    color: lightgray;
+    font-size: 1.1em;
+}
+
+.progress-circle .progress-circle-text, .progress-circle .progress-circle-text.multiline *
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    vertical-align: middle;
+    line-height: 5rem;
+}
+
+.progress-circle-text.multiline .progress-circle-value
+{
+    display: block;
+    line-height: 4rem;
+}
+
+.progress-circle-text.multiline .progress-circle-unit
+{
+    height: 4rem;
+    line-height: 4rem;
+    top: auto;
+    bottom: 0;
+    font-size: .7em;
+    pointer-events: none;
 }
 
 .glass, .black, footer
@@ -654,7 +691,7 @@ input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::af
         box-shadow: inset 0 0 0 1px #262626;
     }
 
-    .outline-circle svg
+    .spinner svg
     {
         animation-name: spinner-svg-spin-ms;
         animation-timing-function: linear;
