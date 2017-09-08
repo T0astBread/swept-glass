@@ -302,6 +302,10 @@ progress::-moz-progress-bar
 .spinner.spinner-small::before
 {
     clip-path: circle(1.2rem);
+    width: 2.4rem;
+    height: 2.4rem;
+    top: .05rem;
+    left: .05rem;
 }
 
 .spinner.spinner-small:not(.bold)::after
@@ -342,11 +346,16 @@ progress::-moz-progress-bar
 
 .spinner.spinner-large::before
 {
-    clip-path: circle(7.75rem);
+    width: 9.9rem;
+    height: 9.9rem;
+    position: absolute;
+    top: .05rem;
+    left: .05rem;
 }
 
 .spinner.spinner-large circle
 {
+    stroke-dasharray: 300, 999;
     animation-name: spinner-large-fill;
 }
 
@@ -551,6 +560,11 @@ input[type=radio]:hover::after, .button-group-member:hover input[type=radio]::af
         animation-name: spinner-svg-spin-ms;
         animation-timing-function: linear;
         animation-duration: .75s;
+    }
+
+    .spinner.spinner-large svg
+    {
+        animation-duration: 2s;
     }
 
     .outline-circle circle
