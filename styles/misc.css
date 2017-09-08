@@ -390,6 +390,7 @@ label.loading-anim::after
     vertical-align: bottom;
     animation: loading-label-animation 2s infinite ease-in-out;
     overflow: hidden;
+    text-align: left;
 }
 
 @keyframes loading-label-animation
